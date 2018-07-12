@@ -1,0 +1,33 @@
+  body{
+	    	width: 80%;
+	    	max-width: 1200px;
+	    	margin:0 auto;
+	    	font-family: "Times New Roman","Microsoft YaHei"
+	    }
+		header{
+			height: 50px;
+			background-color: #808080;
+			text-align: center;
+
+		}
+		h3{
+			float: left;
+			width: 20%;
+			padding:10% 0;
+			margin-right: 5%;
+			margin-bottom: 0;
+			background-color: #808080; /*如何使浮动的两列高度一致？*/
+			text-align: center;
+		}
+		section > div {
+			float: left;
+			width: 75%;
+		}
+		.clearfix{
+			clear: both;
+		}
+		span{
+			font-weight: bold;
+		}
+		
+	   

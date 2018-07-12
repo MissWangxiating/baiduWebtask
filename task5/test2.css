@@ -1,0 +1,25 @@
+ body{
+	    	width: 90%;
+	    	max-width: 900px;
+	    	margin:0 auto;
+	    	font-family: "Microsoft YaHei";
+	    }
+
+		header {
+			float: left;
+			width: 20%;
+			min-height:1100px;
+			margin-right: 20px;
+			background-color: #22B8DD;
+		}
+		section {
+			float: left;
+			width: 70%;
+	
+		}
+		h1{
+			padding: 30%;
+		}
+		span{
+			font-weight: bold;
+		}

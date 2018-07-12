@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>页面布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		html{
+      font-family: sans-serif;
+    }
+    *{
+      box-sizng:border-box;/*为什么要设置这个？*/
+    }
+    body{
+      margin: 0;
+    }
+    header{
+    	width: 100%;
+    	height: 80px;
+    	margin:0 auto;
+    	background-color: #444444;
+    	overflow: hidden;
+    }
+    header ul{
+    	position: absolute;
+    	top:0;
+    	right: 100px;
+        padding-left: 10;
+        margin:0;
+    }
+     li{
+    	float: left;
+    	margin-left: 2px;
+        list-style-type: none;
+    }
+    header li a {
+    	color:white;
+    }
+    header div{
+    	margin-left: 100px;
+    	margin-top: 10px;
+    	color:white;
+    }
+    .banner {
+    	position: relative;
+    	margin:0 auto;
+        width: 100%;
+        height: 200px;
+        background-color: #44BB5C;
+        overflow: hidden;
+    }
+    .banner ul{
+    	position: absolute;
+    	bottom: 0;
+    	right: 100px;
+    	margin:0,auto;
+    }
+   .banner li{
+   	display: block;
+   	width: 20px;
+   	height: 20px;
+   	padding: 5px;
+   	background-color: #B4E4BE;
+   }
+
+   .clearfix{
+   		clear: both; /*清除浮动要紧跟其后*/
+   }
+   nav ul{
+   		 margin-left: 80px;
+   }
+   nav li a{
+   	display: inline-block;
+   	width: 100%;
+   	padding: 10px;
+   	border-top-right-radius: 10px;
+   	border-top-left-radius: 10px;
+   	text-decoration: none;
+   	background-color: #808080;
+   	color:black;	
+   }
+   nav li a:hover{
+   	background-color: #DDDDDD;
+   	color: black;
+   }
+   .active{
+   	background-color: #DDDDDD;
+   	color: black;
+   }
+
+   content > section {
+   	display: flex;
+   	margin-left: 100px;
+   	margin-right: 100px;
+   	margin-top:10px;
+   }
+   content > section div{
+   	margin-left: 10px;
+   	height: 80px;
+   	width: 100%;
+   	background-color: blue;
+   	text-align: center;
+   }
+   footer{
+   	width: 100%;
+   	height: 50px;
+   	background-color: #5E5E5E;
+   	color: white;
+   	text-align: center;
+   }
+    
+
+	</style>
+
+</head>
+<body>
+	<main class="info-box">
+		<header>
+			<div>Logo</div>
+			<ul>
+				<li><a href="">Github</a></li>
+				<li><a href="">Register</a></li>
+				<li><a href="">Login</a></li>
+			</ul>
+		</header>
+		<section class="banner">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+            </ul>
+		</section>
+		<nav>
+			<ul>
+				<li><a href="" class="active">HOME</a></li>
+				<li><a href="">PROFILE</a></li>
+				<li><a href="">ABOUT</a></li>
+			</ul>
+			<div class="clearfix"></div>
+		</nav>
+		<content>
+			<section>
+				<div>this is content1</div>
+				<div>this is content2</div>
+				<div>this is content3</div>
+			</section>
+			<section>
+				<div>this is content4</div>
+				<div>this is content5</div>
+				<div>this is content6</div>
+				<div>this is content7</div>
+			</section>
+			<section>
+				<div>this is content8</div>
+				<div>this is content9</div>
+				<div>this is content10</div>
+			</section>
+		</content>
+		<footer>
+			<p>&copy 2018ife.baidu.com</p>
+		</footer>
+	</main>
+
+</body>
+</html>
+
+

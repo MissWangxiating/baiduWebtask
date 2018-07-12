@@ -1,0 +1,29 @@
+/*三栏布局，左右两边宽度确定，中间宽度自适应*/
+html,body{
+			margin:0;
+			height: 100%;
+		}
+		.container{
+			height: 100%;
+		}
+		.left ,.right{
+			position: absolute;
+			top:0;
+			margin:0;
+			width: 200px;
+			height: 100%;
+		}
+		.left{
+			left:0;
+			background-color: yellow;
+		}
+		.right{
+			right: 0;
+			background-color: green;
+		}
+		.middle{
+			margin:0 210px;
+			height:100%;
+			background-color: red;
+			
+		}

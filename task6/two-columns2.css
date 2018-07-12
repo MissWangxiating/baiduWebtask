@@ -1,0 +1,18 @@
+/*两栏布局，左边宽度确定，右边宽度自适应*/
+body{
+			font-family: sans-serif;
+		}
+		.container{
+			width: 100%;
+			overflow: hidden;
+		}
+		.left{
+			float: left;
+			width: 200px;
+			background-color: yellow;
+		}
+		.right{
+			float:left;
+			width:calc(100% - 200px); /*右边自适应宽度*/
+			background-color: blue;
+		}

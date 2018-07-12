@@ -1,0 +1,18 @@
+/*右侧宽度确定，左侧宽度自适应*/
+ body{
+	    	font-family: sans-serif;
+	    	margin: 0
+	    }
+		.container{
+			width:100%;
+		}
+		.left{
+			float: left;
+			width: calc(100% - 200px);
+			background-color: orange;
+		}
+		.right{
+			float: left;
+			width: 200px;
+			background-color: green;
+		}

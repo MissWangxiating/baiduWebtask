@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>网站页面布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	    body{
+	    	font-family:"microsoft yahei";
+	    }
+		header{
+			height: 600px;
+			width: 100%;
+			padding-top: 150px;
+			/*设置背景图片时，盒子需要设置好长和宽，否则图片不显示*/
+			background-image: url(./images/background_01.png);
+			background-repeat: no-repeat;
+			color:white;
+		}
+		header p{
+			color: grey;
+		}
+		header > div{
+			margin: 0 auto;
+			width: 50%;
+		}
+		section > div{
+			height: 500px;
+		}
+		.one,.three,.four,.five,.six {
+			width: 80%;
+			margin:0 auto;
+			/*background-color: blue;*/
+		}
+		.one{
+			overflow: hidden;
+			
+		}
+		.two{
+			width: 100%;
+			background-image: url(./images/background_02.png);
+			background-repeat: no-repeat;
+		}
+		.three{
+			/*
+			background-color: yellow;
+			*/
+			padding-top:50px;
+		}
+		.four{
+			height: 800px;
+			/*
+			background-color: red;
+			*/
+		}
+		.five{
+			height: 900px;
+			/*
+			background-color: green;
+			*/
+		}
+		.six{
+			display: flex;
+			/*
+			background-color: pink;
+			*/
+		}
+		footer{
+			display: flex;
+			height: 250px;
+			width: 100%;
+			padding-top:50px;
+			padding-left: 5%;
+			background-color: black;
+			color: white;
+		}
+		.text{
+			text-align: center;
+		}
+		#signupform{
+			margin-top: 100px;
+			padding-bottom: 20px;
+			border:1px solid white;
+		}
+		img{
+			float: left;
+			margin-bottom: 10px;
+			margin-right: 20px;
+		}
+		.width{
+			width: 50%;
+			margin:0 auto;
+		}
+
+		.iconform{
+			width: 100%;
+			margin-left:100px;
+			margin-top: 50px;
+		}
+		.iconform div{
+			float: left;
+			width: 40%;
+			margin-left:10px;
+			margin-bottom: 20px;
+		}
+		.iconform article h3{
+			margin-top: 0px;
+		}
+		.two div{
+			margin: 0 auto;
+			padding-top: 100px;
+			width: 30%;
+			text-align: left;
+			color: white;
+		}
+		/*在第二个模块里缺乏给button设置样式*/
+		.three div{
+			display: flex;
+			margin:50px auto;
+		}
+		.three article{
+			width: 30%;
+			margin:0 20px;
+		}
+		.four img{
+			width: 60%;
+			height: 300px;
+		}
+		.four div{
+			padding: 50px;
+		}
+		
+		.clearfix{
+			clear:both;
+		}
+		.right{
+			float: right;
+		}
+		.five article{
+			padding: 50px;
+		}
+		.five img{
+			width: 400px;
+			height: 320px;
+			margin:20px;
+		}
+		.five div{
+			overflow: hidden;
+			margin-left:5%;/*为什么居中margin：0 auto在这里是没有反应的？
+			*/
+		}
+		.six div{
+			padding: 50px;
+			width: 50%;
+			text-align: center;
+		}
+		footer > article {
+			margin-left:20px;
+			width: 20%;
+		}
+		footer ul{
+			padding-left: 0px;
+			list-style-type: none;
+		}
+		footer ul li{
+			margin-bottom: 10px;
+		}
+		[type="text"],.six [type="button"]{
+			width: 200px;
+			height: 30px;
+		}
+		header [type="button"]{
+			height: 30px;
+		}
+		.six [type="button"]{
+			background-color: black;
+			color: white;
+		}
+		textarea{
+			width: 200px;
+		}
+		a{
+			text-decoration: none;
+		}
+		.five img:hover{
+			opacity:0.4;
+		}
+
+
+		
+	</style>
+</head>
+<body>
+	<header>
+		<div class="text">
+			<h1>Hello World</h1>
+			<p>China is speeding up strategic plan, standards, traffic rules,laws and regulations on accident incurred liability for its smart car industry,Economic information Daily reported Thursday </p>
+		</div>
+		<div id="signupform" class="text">
+			<h3>Create Your Account</h3>
+			<p>It is absolutely free</p>
+			<input type="text" name="email_address" placeholder="design@sina.com">
+			<input type="text" name="password" placeholder="create your password">
+			<input type="button" name="signup" value="SIGN UP">
+		</div>	
+	</header>
+	<section class="main-box">
+		<div class="one">
+			<div class="text width">
+				<p>Boatloads of Awesome</p>
+				<h1>Ready-made, customizable, HTML landing page sections</h1>
+			</div>
+			<div class="iconform">
+				<div>
+					<img src="./images/log1.png">
+					<article>
+						<h3>Mobile First</h3>
+						<p>All modulz are built mobile-first for maximum device compatibil</p>
+					</article>
+				</div>
+				<div>
+					<img src="./images/log2.png">
+					<article>
+						<h3>Accessibility</h3>
+						<p>Support for IE8, mobile and tablet devices, screenreaders and c</p>
+					</article>
+				</div>
+				<div>
+					<img src="./images/log3.png">
+					<article>
+						<h3>Fluid Typography</h3>
+						<p>On different screen sizes, fonts automagically scale with the v</p>
+					</article>
+				</div>
+				<div>
+					<img src="./images/log4.png">
+					<article>
+						<h3>Customization</h3>
+						<p>Make any design your own using the Style Editor. Personalize fo</p>
+					</article>
+				</div>
+			</div>
+		</div>
+		<div class="two">
+			<div>
+				<h1>Supportive policies for China's smart car</h1>
+				<p>Sit ad omnis essent accumsan, no vis ludus ubique platonem.</p>
+				<input type="button" name="check" value="CHECK OUT FEATURES">
+				<input type="button" name="try" value="TRY PRODUCT FOR FREE">
+			</div>
+		</div>
+		<div class="three">
+			<h1 class="text">Try Our Awesome Products</h1>
+			<div>
+				<article>
+					<img src="./images/log5.png">
+					<p>Li Jun, a China Academy of Engineering academician and also dir</p>			
+				</article>
+				<article>
+					<img src="./images/log6.png">
+					<p>Li said the smart car industry is able to enlarge the current c</p>			
+				</article>
+				<article>
+					<img src="./images/log7.png">
+					<p>Zhang Junyi, a partner with NIO Capital, said that the smart ca</p>			
+				</article>
+			</div>
+		</div>
+		<div class="four">
+			<div>
+				<img src="./images/log8.png">
+				<article>
+					<h3>Learn How to Improve Your Personal Business</h3>
+					<p>Li Jun, a China Academy of Engineering academician and also dir</p>
+				</article>
+			</div>
+			<div class="clearfix">
+				<img class="right"src="./images/log9.png">
+				<article>
+					<h3>Choose Between Two Beautifully Designed Color Schemes.</h3>
+					<p>China will come up with its own smart car standards, traffic ru</p>
+				</article>	
+			</div>
+		</div>
+		<div class="five">
+			<article class="text">
+				<h1>Our Awesome Crew</h1>
+				<p>Our unique online teaching style makes learning easy for everyo</p>
+			</article>
+			<div>
+				<img src="./images/log10.png">
+				<img src="./images/log11.png">
+				<img src="./images/log12.png">
+				<img src="./images/log13.png">
+			</div>
+		</div>
+		<div class="six">
+			<div>
+				<h1>FELL FREE TO WRTIE US</h1>
+				<input type="text" name="email" placeholder="E-mail"><BR>
+				<input type="text" name="subject" placeholder="Subject"><br>
+				<textarea placeholder="Message"></textarea><br>
+				<input type="button" name="send" value="SEND"><br>
+			</div>
+			<div>
+				<h1>Contact</h1>
+				<p>Make any design your own using the Style Editor. Personalize fo 拷贝</p>
+				<p></p>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<article>
+			<h1>Learn More</h1>
+			<ul>
+				<li>How it works?  </li>
+				<li>Meeting tools</li>
+				<li>Live streaming </li>
+				<li>Contact method</li>
+			</ul>
+		</article>
+		<article>
+			<h1>About Us</h1>
+			<ul>
+				<li>About us  </li>
+				<li>Features  </li>
+				<li>Privacy police  </li>
+				<li>Terms & Conditions</li>	
+			</ul>
+		</article>
+		<article>
+			<h1>Support</h1>
+			<ul>
+				<li>F.A.Q.      </li>
+				<li>Contact us  </li>
+				<li>Live chat  </li>
+				<li>Phone call</li>	
+			</ul>
+		</article>
+		<article>
+			<h1>Enjoy your Life</h1>
+			<ul>
+				<li>Great web UI kit for designers, freelancers or business</li>	
+			</ul>
+		</article>
+	</footer>
+
+
+</body>
+</html>

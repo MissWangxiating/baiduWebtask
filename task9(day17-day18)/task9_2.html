@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--实现十进制和二进制的转换-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+
+function dec2bin(decNumber) {
+    // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+    var binlist =[ ];
+    var regu = /^\d+$/;
+    if(regu.test(decNumber)){
+        while(decNumber > 0){
+            var mo = Math.floor(decNumber / 2);
+            var yu = decNumber % 2;
+            binlist.push(yu);
+            decNumber = mo;
+        }
+        var binstr = binlist.join("");
+        return binstr;
+    }
+    else{
+        console.log("please enter a number over zero");
+    }
+
+}
+
+// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+// 为什么要点击两下才能成功呢？
+    document.getElementById("trans-btn").onclick = function(){
+        var decnumber =  document.getElementById("dec-number").value;
+        document.getElementById("result").innerHTML = dec2bin(Number(decnumber));
+    }
+    </script>
+</body>
+</html>

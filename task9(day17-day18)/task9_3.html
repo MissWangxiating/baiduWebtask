@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--switch使用-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sayhello_to_time</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <p id="time">根据时间打招呼</p>
+</body>
+<script type="text/javascript">
+    var now = new Date();
+    var time = now.getHours();
+    var item = document.getElementById("time");
+    console.log(time);
+    switch(time){
+        case(time < 12):
+            item.innerHTML = "尊敬的顾客，早上好！";
+            break;
+        case(time = 12):
+            item.innerHTML = "尊敬的顾客，中午好！";
+            break;
+        case(time >12 && time < 18):
+            item.innerHTML = "尊敬的顾客，下午好！";
+            break;
+        case(time > 18):
+            item.innerHTML = "尊敬的顾客，晚上好！";
+            break;
+        default:
+            console.log("some error here!");
+
+    }
+</script>
+</html>

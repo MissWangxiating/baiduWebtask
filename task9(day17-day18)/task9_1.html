@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--try catch实现-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+       var fstnumber = document.getElementById("first-number");
+       var secnumber = document.getElementById("second-number");
+       var result = document.getElementById("result");
+       //运行减运算
+       function cut(num1,num2){
+        return num1 - num2;
+       }
+       //运行加运算
+       function add(num1,num2){
+        return num1 + num2;
+       }
+
+
+       function times(num1,num2){
+        return num1 * num2;
+       }
+
+       function divide(num1,num2){
+        return num1 / num2;
+       }
+       function testerr(){
+        try {
+            var num1 = fstnumber.value;
+            var num2 = secnumber.value;
+            if(Number(num1)== NaN || Number(num2)== NaN) throw "please enter number";
+            if(Number(secnumber.value)==0) throw "the chushu can't be zero";
+        }
+        catch(err){
+            console.log("Error" + err + ".");
+        }
+       }
+
+       document.getElementById("add-btn").onclick = function(){
+        testerr();
+        result.innerHTML = "两数相加其和为" + add(Number(fstnumber.value),Number(secnumber.value));
+       }
+
+        document.getElementById("minus-btn").onclick = function(){
+        console.log(typeof(fstnumber.value));
+        console.log(typeof(secnumber.value));
+        result.innerHTML = "两数相减其差为" + cut(Number(fstnumber.value),Number(secnumber.value));
+       }
+       document.getElementById("times-btn").onclick = function(){
+        result.innerHTML = "两数相乘其积为" + times(Number(fstnumber.value),Number(secnumber.value));
+       }
+       document.getElementById("divide-btn").onclick = function(){
+        testerr();
+        result.innerHTML = "两数相除其商为" + divide(Number(fstnumber.value),Number(secnumber.value));
+       }
+
+    </script>
+</body>
+</html>

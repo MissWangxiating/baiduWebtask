@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>倒计时</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <select id="year-select">
+    <option value="2000">2000</option>
+    <option value="2001">2001</option>
+    <option value="2002">2002</option>
+    ……
+    <option value="2032">2002</option>
+</select>
+
+<select id="month-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="12">12</option>
+</select>
+
+<select id="day-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="31">31</option>
+</select>
+
+<select id="hour-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    ……
+    <option value="23">23</option>
+</select>
+
+<select id="minite-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+
+<select id="second-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+<p id="now_time">当前时间：</p>
+
+<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+<script type="text/javascript">
+    var now = startnow();
+    function startnow(){
+        var now = new Date();
+        //console.log(now);
+        var y = now.getFullYear();
+        //console.log(y);
+        var m = now.getMonth() + 1;
+        var d = now.getDate();
+        var wd = now.getDay();
+        var h = now.getHours();
+        var mits = now.getMinutes();
+        var s = now.getSeconds();
+        h = checknumber(h);
+        mits = checknumber(mits);
+        s = checknumber(s);
+        document.getElementById("now_time").innerHTML="当前时间为："+y+"年"+m+"月"+d+"日" +h+":"+ mits +":"+s;
+        new_time = setTimeout("startnow()",1000);//如果放在return后面就不会有反应
+        var newdate = new Date(y,m-1,d,h,mits,s);
+        return newdate;
+
+    };
+
+    function checknumber(d){
+        if (d < 10) {
+            d = "0"+ d;
+        }
+            return d;
+     };
+
+    function getsomeDate(){
+        var y = document.getElementById("year-select").value;
+        var m = document.getElementById("month-select").value;
+        var d = document.getElementById("day-select").value;
+        var h = document.getElementById("hour-select").value;
+        var mint = document.getElementById("minite-select").value;
+        var s = document.getElementById("second-select").value;
+        var sdate = new Date(y,m,d,h,mint,s);
+        document.getElementById("result-wrapper").innerHTML="距离"+y+"年"+m+"月"+d+"日" +h+":"+ mint +":"+s;
+        return sdate;
+        console.log(y);
+    }
+    //如何监听下拉框选项的变化？
+    //document.querySelectorAll("select").onchange = getsomeDate();
+    //getsomeDate();
+    var somedate = getsomeDate();
+    var timeleft = now - somedate;
+
+</script>
+</body>
+</html>

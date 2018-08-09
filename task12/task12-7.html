@@ -32,8 +32,8 @@
             var result_arr = [];
             for (m in obj) {
                 var item_arr = [];
-                console.log(typeof(m));
-                item_arr = [m, m.Math, m.English, m.Music];
+                console.log(typeof(obj[m]));
+                item_arr = [m,obj[m]["Math"],obj[m]["English"],obj[m]["Music"]];
                 result_arr.push(item_arr);
             };
             return result_arr;
@@ -51,6 +51,14 @@
             [7, "Area1-2-3", 4],
             [8, "Area2-2-1", 6],
         ];
+
+        //将数组转换为对象
+        function arrtoObj(arr) {
+            var obj = {};
+            for (item in arr){
+               obj 
+            };
+        }
 
         var menuObject = {
             "1": {

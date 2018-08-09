@@ -90,15 +90,28 @@
         var mint = document.getElementById("minite-select").value;
         var s = document.getElementById("second-select").value;
         var sdate = new Date(y,m,d,h,mint,s);
-        document.getElementById("result-wrapper").innerHTML="距离"+y+"年"+m+"月"+d+"日" +h+":"+ mint +":"+s;
+        document.getElementById("result-wrapper").innerHTML="距离"+y+"年"+m+"月"+d+"日" +h+":"+ mint +":"+s+"&nbsp&nbsp";
         return sdate;
         console.log(y);
     }
     //如何监听下拉框选项的变化？
     //document.querySelectorAll("select").onchange = getsomeDate();
     //getsomeDate();
-    var somedate = getsomeDate();
-    var timeleft = now - somedate;
+    function ticks() {
+        var somedate = getsomeDate();
+        var timeleft = now - somedate;
+        var l_h = parseInt(timeleft / (1000 * 60 * 60) % 24, 10);
+        var l_mint = parseInt((timeleft / (1000 * 60) % 60), 10);
+        var l_s = parseInt((timeleft / 1000 % 60), 10);
+        var l_day = parseInt(timeleft / (1000 * 60 * 60 * 24), 10);
+        var s = l_day + "天" + l_h + "小时" + l_mint + "分钟" + l_s + "秒";
+        //为什么它这个倒计时无法实现？
+        lf_time = setTimeout("ticks()", 1000);
+        document.getElementById("result-wrapper").innerHTML += s;
+        
+    }
+    ticks();
+    
 
 </script>
 </body>

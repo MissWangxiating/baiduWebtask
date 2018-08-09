@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <!--练习数字相关的操作-->
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>IFE ECMAScript</title>
     <link rel="stylesheet" href="">
 </head>
+
 <body>
-   <div>
+    <div>
         <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
         <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
     </div>
@@ -24,70 +26,69 @@
     </div>
     <p id="result"></p>
     <script type="text/javascript">
-         var numberA = document.getElementById("radio-a");
-         var numberB = document.getElementById("radio-b");
-         var result = document.getElementById("result");
-         var buttons = document.querySelectorAll("button");
-         var num_a = document.getElementById("num-a");
-         var num_b = document.getElementById("num-b");
-         var S_number;
+        var numberA = document.getElementById("radio-a");
+        var numberB = document.getElementById("radio-b");
+        var result = document.getElementById("result");
+        var buttons = document.querySelectorAll("button");
+        var num_a = document.getElementById("num-a");
+        var num_b = document.getElementById("num-b");
+        var S_number;
 
-         numberA.onclick = function(){
-             S_number = num_a.value;
-            console.log("a-value为"+ S_number);
-         };
+        numberA.onclick = function() {
+            S_number = num_a.value;
+            console.log("a-value为" + S_number);
+        };
 
-        numberB.onclick = function(){
+        numberB.onclick = function() {
             S_number = num_b.value;
-            console.log("b-value为"+ S_number);
-         };
+            console.log("b-value为" + S_number);
+        };
 
         //判断是否为数字
-        function isnum(d){
-             if(d ===""||d == null){
+        function isnum(d) {
+            if (d === "" || d == null) {
                 return false;
-             }
-             if(!isNaN(d)){
+            }
+            if (!isNaN(d)) {
                 return true;
-             }
-             else{
+            } else {
                 return false;
-             }
+            }
         };
         //把A四舍五入成B个小数位数字,该函数暂时不能补零
-        function xiaoshu(d,m){
-            return Math.round(d*Math.pow(10,m))/Math.pow(10,m);
+        function xiaoshu(d, m) {
+            return Math.round(d * Math.pow(10, m)) / Math.pow(10, m);
         };
         //当前选中数字的绝对值
-        function abs(d){
+        function abs(d) {
             return Math.abs(d);
         };
         //对当前选中的数字进行上舍入
-        function upround(d){
+        function upround(d) {
             return Math.ceil(d);
         };
 
         //对当前选中的数字进行下舍入
-        function downround(d){
+        function downround(d) {
             return Math.floor(d);
         };
 
         //把当前选中的数字四舍五入为最接近的整数
-        function numround(d){
+        function numround(d) {
             var dotnum = d.toString().split('.');
             console.log(dotnum[1]);
-            var xiaoshu = dotnum[1]*(1/Math.pow(10,dotnum[1].length));
-            if (xiaoshu > 0.5)
-                {
-                    console.log("向上取整");
-                    return Math.ceil(d);
-                } else{
-                    console.log("向下取整")
-                    return Math.floor(d);
-                };
+            var xiaoshu = dotnum[1] * (1 / Math.pow(10, dotnum[1].length));
+            if (xiaoshu > 0.5) {
+                console.log("向上取整");
+                return Math.ceil(d);
+            } else {
+                console.log("向下取整")
+                return Math.floor(d);
+            };
         };
         //比较A,B的大小，输出最大值
-        function bigger(a,b){
+        function bigger(a, b) {
+            /*
             if (a.value > b.value) {
                 //console.log(a);
                 return a.value;
@@ -95,92 +96,90 @@
                 //console.log(b);
                 return b.value;
             };
+            */
+            return Math.max(a.value, b.value);
         }
 
         //比较A,B的大小，输出最小值
-        function smaller(a,b){
-            if (a.value < b.value ) {
+        function smaller(a, b) {
+            /*
+            if (a.value < b.value) {
                 //console.log(a);
                 return a.value;
-            }
-             else{
-               // console.log(b);
+            } else {
+                // console.log(b);
                 return b.value;
-             };
+            };
+            */
+            return Math.min(a.value, b.value);
         }
         //目前的程序逻辑，不支持反复判断
-        buttons[0].onclick = function(){
-           if (isnum(S_number))
-            {
-                console.log(S_number+"is a number");
+        buttons[0].onclick = function() {
+            if (isnum(S_number)) {
+                console.log(S_number + "is a number");
                 result.innerHTML = S_number + "is a number";
-            }
-           else{
+            } else {
                 console.log(S_number + "is not a number!");
                 result.innerHTML = S_number + "is not a number!";
-           };
+            };
         };
 
-        buttons[1].onclick = function(){
-            if(isnum(num_a.value)){
-                result.innerHTML = xiaoshu(num_a.value,num_b.value);
-            }
-            else{
+        buttons[1].onclick = function() {
+            if (isnum(num_a.value)) {
+                result.innerHTML = xiaoshu(num_a.value, num_b.value);
+            } else {
                 console.log("please enter a number!");
             };
 
         };
 
-        buttons[2].onclick = function(){
-            if(isnum(S_number)){
+        buttons[2].onclick = function() {
+            if (isnum(S_number)) {
                 result.innerHTML = abs(S_number);
-            }
-            else{
+            } else {
                 console.log("please enter a number!");
             };
 
         };
-        buttons[3].onclick = function(){
-            if(isnum(S_number)){
+        buttons[3].onclick = function() {
+            if (isnum(S_number)) {
                 result.innerHTML = upround(S_number);
-            }
-            else{
+            } else {
                 console.log("please enter a number!");
             };
 
         };
-        buttons[4].onclick = function(){
-            if(isnum(S_number)){
+        buttons[4].onclick = function() {
+            if (isnum(S_number)) {
                 result.innerHTML = downround(S_number);
-            }
-            else{
+            } else {
                 console.log("please enter a number!");
             };
 
         };
 
-        buttons[5].onclick = function(){
-            if(isnum(S_number)){
+        buttons[5].onclick = function() {
+            if (isnum(S_number)) {
                 result.innerHTML = numround(S_number);
-            }
-            else{
+            } else {
                 console.log("please enter a number!");
             };
 
         };
         //输出最大值
-        buttons[6].onclick = function(){
-           result.innerHTML = bigger(num_a,num_b);
-           console.log("输出最大值！");
+        buttons[6].onclick = function() {
+            result.innerHTML = bigger(num_a, num_b);
+            console.log("输出最大值！");
 
         };
         //输出最小值
-        buttons[7].onclick = function(){
-           result.innerHTML = smaller(num_a,num_b);
-           console.log("输出最小值！");
+        buttons[7].onclick = function() {
+            result.innerHTML = smaller(num_a, num_b);
+            console.log("输出最小值！");
 
         };
     </script>
 
 </body>
+
 </html>

@@ -1,52 +1,79 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>头尾去空格以及去除连续重复的字符串</title>
     <link rel="stylesheet" href="">
 </head>
+
 <body>
-/*
-实现一个字符串头尾去除空格的函数
-注意需要去除的空格，包括全角、半角空格
-暂时不需要学习和使用正则表达式的方式
-*/
-function diyTrim(str) {
-    var result = "";
+    <script>
+        /*
+                                                                                                                                                            实现一个字符串头尾去除空格的函数
+                                                                                                                                                            注意需要去除的空格，包括全角、半角空格
+                                                                                                                                                            思路：用substring(start,end)取字符串中第一个非空的值，和最后非空的值
+                                                                                                                                                            全角空格的unicode编码为12288，半角空格的unicode编码为32，charCodeAt()方法返回指定位置的字符的Unicode编码
+                                                                                                                                                            */
+        function diyTrim(str) {
+            var result = "";
+            var start; //开始为非空的字符串
+            var end; //结束为非空的字符串
+            for (let i = 0; i < str.length; i++) {
+                if (str.charCodeAt(i) != 12288 && str.charCodeAt(i) != 32) {
+                    start = i;
+                    break;
+                };
+            };
+            for (let j = str.length - 1; j > 0; j--) {
+                if (str.charCodeAt(j) != 12288 && str.charCodeAt(j) != 32) {
+                    end = j;
+                    break;
+                }
+            }
+            result = str.substring(start, end);
 
-    // do something
+            return result
+        }
 
-    return result
-}
+        // 测试用例
+        console.log("2");
+        console.log(diyTrim(' a f b    ')); // ->a f b
+        console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+        console.log(diyTrim('1    ')); // ->1
+        console.log(diyTrim('　　f')); // ->f
+        console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+        console.log(diyTrim(' ')); // ->
+        console.log(diyTrim('　')); // ->
+        console.log(diyTrim('')); // ->
 
-// 测试用例
-console.log(diyTrim(' a f b    ')); // ->a f b
-console.log(diyTrim('    ffdaf    ')); // ->ffdaf
-console.log(diyTrim('1    ')); // ->1
-console.log(diyTrim('　　f')); // ->f
-console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
-console.log(diyTrim(' ')); // ->
-console.log(diyTrim('　')); // ->
-console.log(diyTrim('')); // ->
+        /*
+        去掉字符串str中，连续重复的地方
+        思路：将字符串转化为数组，遍历字符串，判断字符串中各个字符是否相等，获取相等的字符的编号，用splice（index,i）函数去除.
+        */
+        function removeRepetition(str) {
+            var result = "";
+            var str_arr = str.split("");
+            for (let i = 0; i < str_arr.length - 1; i++) {
+                if (str_arr[i] == str_arr[i + 1]) {
+                    console.log("yes");
+                    str_arr.splice(i, 1);
+                    i = i - 1;
+                }
+            };
+            result = str_arr.join('');
+            return result;
+        }
 
-/*
-去掉字符串str中，连续重复的地方
-*/
-function removeRepetition(str) {
-    var result = "";
-
-    // do something
-
-    return result;
-}
-
-// 测试用例
-console.log(removeRepetition("aaa")); // ->a
-console.log(removeRepetition("abbba")); // ->aba
-console.log(removeRepetition("aabbaabb")); // ->abab
-console.log(removeRepetition("")); // ->
-console.log(removeRepetition("abc")); // ->abc
-
+        // 测试用例
+        console.log("去重");
+        console.log(removeRepetition("aaa")); // ->a
+        console.log(removeRepetition("abbba")); // ->aba
+        console.log(removeRepetition("aabbaabb")); // ->abab
+        console.log(removeRepetition("")); // ->
+        console.log(removeRepetition("abc")); // ->abc
+    </script>
 </body>
+
 </html>

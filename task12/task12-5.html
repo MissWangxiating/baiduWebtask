@@ -1,38 +1,88 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>数组</title>
     <link rel="stylesheet" href="">
 </head>
+
 <body>
-<input id="queue-input" type="text">
-<p id="queue-cont">队列内容：apple-&gt;pear</p>
-<button id="in-btn">入队</button>
-<button id="out-btn">出队</button>
-<button id="font-btn">打印队头元素内容</button>
-<button id="empty-btn">判断队列是否为空</button>
+    <input id="queue-input" type="text">
+    <p id="queue-cont">队列内容：apple-&gt;pear</p>
+    <button id="in-btn">入队</button>
+    <button id="out-btn">出队</button>
+    <button id="font-btn">打印队头元素内容</button>
+    <button id="empty-btn">判断队列是否为空</button><br><br>
 
-<script>
+    <script>
+        var queue = ["apple", "pear"];
+        var add_item = document.getElementById("queue-input");
+        var result = document.getElementById("queue-cont");
+        //入队
+        document.getElementById("in-btn").onclick = function() {
+            queue.unshift(add_item.value);
+            result.innerHTML = "队列内容：" + queue.join("-&gt;");
+        };
+        //出队
+        document.getElementById("out-btn").onclick = function() {
+            queue.pop();
+            result.innerHTML = "队列内容：" + queue.join("-&gt;");
+        };
+        //打印队头元素
+        document.getElementById("font-btn").onclick = function() {
+            var font = queue[-1];
+            console.log("队头元素为" + font);
+        };
+        //判断队列是否非空
+        document.getElementById("empty-btn").onclick = function() {
+            if (queue.length == 0) {
+                console.log("队列为空！");
+            } else {
+                console.log("队列非空！");
+            }
+        }
+    </script>
 
-var queue = ["apple", "pear"];
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：apple-&gt;pear</p>
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="s_font-btn">打印栈顶元素内容</button>
+    <button id="s_empty-btn">判断栈是否为空</button>
 
-</script>
-
-<input id="stack-input" type="text">
-<p id="stack-cont">栈内容：apple-gt;pear</p>
-<button id="push-btn">进栈</button>
-<button id="pop-btn">退栈</button>
-<button id="font-btn">打印栈顶元素内容</button>
-<button id="empty-btn">判断栈是否为空</button>
-
-<script>
-
-var stack = ["apple", "pear"];
-
-</script>
+    <script>
+        var stack = ["apple", "pear"];
+        var add_stack = document.getElementById("stack-input");
+        var s_result = document.getElementById("stack-cont");
+        //进栈
+        document.getElementById("push-btn").onclick = function() {
+            stack.unshift(add_stack.value);
+            s_result.innerHTML = "栈内容：" + stack.join("-&gt;");
+        };
+        //退栈
+        document.getElementById("pop-btn").onclick = function() {
+            stack.shift();
+            s_result.innerHTML = "栈内容：" + stack.join("-&gt;");
+        };
+        //打印栈顶元素
+        document.getElementById("s_font-btn").onclick = function() {
+            var s_font = stack[-1];
+            //为什么输出是undefined?
+            console.log("栈顶元素为" + s_font);
+        };
+        //判断栈是否非空
+        document.getElementById("s_empty-btn").onclick = function() {
+            if (stack.length == 0) {
+                console.log("栈为空！");
+            } else {
+                console.log("栈非空！");
+            }
+        }
+    </script>
 
 
 </body>
+
 </html>

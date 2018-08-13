@@ -5,6 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>邮件发送</title>
     <link rel="stylesheet" href="">
+    <style>
+        .email-sug{
+           list-style: none;
+           padding-left: 0;
+           margin-top: 0;
+           width:22%;
+           border:1px black solid;
+        }
+        .active{
+            background-color: pink;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -14,6 +26,151 @@
     <script type="text/javascript">
        //邮箱后缀list参考
        var postfix = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+       //获取输入文本
+       var s_input = document.getElementById("email-input");
+       //获取下拉列表
+       var email_list = document.getElementById("email-sug-wrapper");
+       //输入事件的监听
+
+       /*实例1没有反应
+       s_input.onkeypress = function(){
+           console.log("event handle");
+       }
+       */
+       /*实例2没有反应
+       s_input.onkeyup = function(){
+           console.log("event loop");
+       }
+       */
+       /*实例3没有反应
+       s_input.onkeydown = function(){
+           console.log("event handle");
+       }
+       */
+       s_input.oninput = function () {
+           //显示提示框内容
+           email_list.innerHTML= "";
+           console.log("event handle");
+           console.log(typeof(getinput(s_input)));
+           isShow(getinput(s_input),email_list);
+           someword(getinput(s_input), postfix);
+           getcontent();
+           //重置选中状态，如果按键不是上下及回车，重置选中状态
+           refocus();
+           
+
+       }
+      //重置选中状态
+      
+      function refocus() {
+          //找到当前为选中状态的li
+          var li_item = document.getElementsByClassName("active");
+          var li_list = email_list.childNodes
+          if(li_item != li_list[0]){
+              li_item.className=" ";
+              li_list[0].className="active";
+          }
+      }
+      
+     //监听特殊三个键的键盘事件 
+    email_list.addEventListener("keydown",findli,false);
+    var findli = function (){
+        var li_focus = document.getElementsByClassName("active");
+        li_focus.className="";
+        //获取输入框的值
+        var s = document.getElementById("email-input");
+        //获得键盘输入值
+        var licode = window.event.keyCode;
+        //获得列表中当前选中值
+        var focus_item = document.activeElement;
+        if (licode == 38){
+            console.log("向上");
+            if(focus_item != email_list.childNodes[0]){
+                focus_item.previousElementSibling.className="active";
+            }else{
+                email_list.childNodes[-1].className ="active";
+            }
+        };
+        if(licode == 40){
+            console.log("向上");
+            if(focus_item != email_list.childNodes[-1]){
+                focus_item.nextElementSibling.className="active";
+            }else{
+                email_list.childNodes[0].className="active";
+            }
+        };
+        if(licode == 13){
+            s.value = focus_item.innerHTML;
+            yincang(email_list);
+        }
+
+
+    }
+           
+       //获取输入值
+       function getinput(item){
+           var s = item.value.trim();
+           return s;
+       }
+       //生成提示框提示内容
+       function someword(item,arr){
+          // 判断用户是否输入有@的内容
+          if(item.indexOf("@") != -1){
+              //console.log("有！");
+              //console.log(item.indexOf("@"));
+              var num = item.indexOf("@");
+              var len = item.length;
+              //用来拼接前缀之后的字符串 
+              //为什么这样子取值，一直取的是@符号前面那个值呢？因为我的item的变量表示在变化
+              var item_last = item.slice(num + 1);
+              //用来拼接前缀之前的字符串
+              var item = item.slice(0,num);
+              
+              console.log(item_last);
+          }else{
+              item_last ="";
+          }
+          arr.forEach(element => {
+              if (element.indexOf(item_last)!=-1){
+                  console.log(element.indexOf(item_last));
+                  element =item +"@"+ element;
+                  var s = document.createElement("Li");
+                  s.innerHTML = element;
+                  email_list.appendChild(s);
+                  console.log("well done!");
+              }
+          }); 
+       }
+       //控制email_list的显示隐藏内容
+       function isShow(item,ul_list){
+            if(item.length == 0){
+                ul_list.style.visibility ="hidden";
+                console.log("隐藏！");
+            }
+            else{
+                ul_list.style.visibility="visible";
+            };
+       };
+       //隐藏提示框
+       function yincang(ul_list) {
+           ul_list.style.visibility ="hidden";
+       }
+       //点击列表，获取列表值
+       function getcontent(){
+           var li_items = document.getElementById("email-sug-wrapper").childNodes;
+           console.log(li_items);
+           for(let i=0;i<li_items.length;i++){
+               li_items[0].className ="focus";
+               li_items[i].onclick=function(){
+                   s_input.value = li_items[i].innerHTML;
+                   yincang(email_list);
+               };
+           };   
+       }
+       //对特殊字符进行解码，鼠标点击的提示框内容转回输入框时进行解码
+
+       
+
     </script>
 
 </body>

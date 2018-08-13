@@ -55,6 +55,13 @@
         //将数组转换为对象
         function arrtoObj(arr) {
             var obj = {};
+            for (var i=0;i<arr.length;i++){
+                obj ={
+                    arr[i][0]:{
+                        name:arr[i][1];
+                    };
+                }
+            }
             for (item in arr){
                obj 
             };
